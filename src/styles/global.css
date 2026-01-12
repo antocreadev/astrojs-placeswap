@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+
+  /* Couleurs PlaceSwap */
+  --color-primary-blue: #2196f3;
+  --color-primary-blue-dark: #1976d2;
+  --color-primary-blue-light: #64b5f6;
+  --color-primary-orange: #ff9800;
+  --color-primary-orange-dark: #f57c00;
+  --color-primary-orange-light: #ffb74d;
+}

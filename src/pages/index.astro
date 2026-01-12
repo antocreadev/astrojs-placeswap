@@ -1,11 +1,874 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Header -->
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <img
+            src="/logo-placeswap-nobg.png"
+            alt="PlaceSwap Logo"
+            class="h-24 w-auto"
+          />
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            href="#fonctionnement"
+            class="text-slate-300 hover:text-white transition-colors"
+            >Comment ça marche</a
+          >
+          <a
+            href="#avantages"
+            class="text-slate-300 hover:text-white transition-colors"
+            >Avantages</a
+          >
+          <a
+            href="#faq"
+            class="text-slate-300 hover:text-white transition-colors">FAQ</a
+          >
+        </nav>
+        <a
+          href="#notification"
+          class="bg-gradient-to-r from-[#2196F3] to-[#1976D2] hover:from-[#1976D2] hover:to-[#1565C0] text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105"
+        >
+          Être notifié
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section
+    class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+  >
+    <!-- Background gradient -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800"
+    >
+    </div>
+    <div
+      class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#2196F3]/20 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FF9800]/20 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center"
+    >
+      <!-- Badge en développement -->
+      <div
+        class="inline-flex items-center gap-2 bg-[#FF9800]/20 border border-[#FF9800]/40 rounded-full px-4 py-2 mb-8"
+      >
+        <span class="relative flex h-3 w-3">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9800] opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-[#FF9800]"
+          ></span>
+        </span>
+        <span class="text-[#FFB74D] font-medium text-sm"
+          >En développement • Sortie prochaine 2026</span
+        >
+      </div>
+
+      <h1
+        class="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight"
+      >
+        Échangez vos places de parking
+        <span
+          class="block bg-gradient-to-r from-[#2196F3] via-[#64B5F6] to-[#FF9800] bg-clip-text text-transparent"
+          >gratuitement</span
+        >
+      </h1>
+
+      <p class="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto mb-10">
+        L'application communautaire qui fluidifie la circulation et réduit votre
+        impact environnemental.
+        <span class="text-white font-medium">100% gratuite.</span>
+      </p>
+
+      <!-- App Store Buttons -->
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+      >
+        <a
+          href="#notification"
+          class="group flex items-center gap-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl px-6 py-3 transition-all hover:scale-105"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"
+            ></path>
+          </svg>
+          <div class="text-left">
+            <div class="text-xs text-slate-400">Bientôt sur</div>
+            <div class="text-lg font-semibold text-white">App Store</div>
+          </div>
+        </a>
+        <a
+          href="#notification"
+          class="group flex items-center gap-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl px-6 py-3 transition-all hover:scale-105"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"
+            ></path>
+          </svg>
+          <div class="text-left">
+            <div class="text-xs text-slate-400">Bientôt sur</div>
+            <div class="text-lg font-semibold text-white">Google Play</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div
+        class="flex flex-wrap items-center justify-center gap-8 sm:gap-16 text-center"
+      >
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold text-[#2196F3]">100%</div>
+          <div class="text-slate-400 text-sm">Gratuit</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold text-[#FF9800]">0€</div>
+          <div class="text-slate-400 text-sm">Aucun frais</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold text-[#64B5F6]">∞</div>
+          <div class="text-slate-400 text-sm">Échanges illimités</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+      class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+    >
+      <svg
+        class="w-6 h-6 text-slate-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Comment ça marche -->
+  <section id="fonctionnement" class="py-20 sm:py-32 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-bold mb-4">Comment ça marche ?</h2>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+          Simple, rapide et efficace. En 3 étapes, partagez l'information sur
+          votre place.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-[#2196F3] to-[#64B5F6] rounded-2xl blur opacity-25 group-hover:opacity-50 transition-opacity"
+          >
+          </div>
+          <div class="relative bg-slate-900 rounded-2xl p-8 h-full">
+            <div
+              class="w-14 h-14 bg-[#2196F3]/20 rounded-xl flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl font-bold text-[#2196F3]">1</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Signalez votre départ</h3>
+            <p class="text-slate-400">
+              Vous quittez votre place ? Signalez-le en un clic. Votre position
+              est partagée avec la communauté.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-[#64B5F6] to-[#FF9800] rounded-2xl blur opacity-25 group-hover:opacity-50 transition-opacity"
+          >
+          </div>
+          <div class="relative bg-slate-900 rounded-2xl p-8 h-full">
+            <div
+              class="w-14 h-14 bg-gradient-to-r from-[#2196F3]/20 to-[#FF9800]/20 rounded-xl flex items-center justify-center mb-6"
+            >
+              <span
+                class="text-2xl font-bold bg-gradient-to-r from-[#2196F3] to-[#FF9800] bg-clip-text text-transparent"
+                >2</span
+              >
+            </div>
+            <h3 class="text-xl font-bold mb-3">Connexion automatique</h3>
+            <p class="text-slate-400">
+              L'application connecte automatiquement les conducteurs à proximité
+              qui cherchent une place.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-[#FF9800] to-[#FFB74D] rounded-2xl blur opacity-25 group-hover:opacity-50 transition-opacity"
+          >
+          </div>
+          <div class="relative bg-slate-900 rounded-2xl p-8 h-full">
+            <div
+              class="w-14 h-14 bg-[#FF9800]/20 rounded-xl flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl font-bold text-[#FF9800]">3</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Échange fluide</h3>
+            <p class="text-slate-400">
+              Le conducteur vous attend, vous partez, il prend votre place.
+              Simple comme bonjour !
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avantages -->
+  <section id="avantages" class="py-20 sm:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-bold mb-4">
+          Pourquoi PlaceSwap ?
+        </h2>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+          Des avantages pour vous, pour la communauté et pour la planète.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Gratuit -->
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-[#2196F3]/50 transition-colors"
+        >
+          <div
+            class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-green-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">100% Gratuit</h3>
+          <p class="text-slate-400 text-sm">
+            Aucun frais, aucun abonnement. Le partage d'information est gratuit
+            et le restera toujours.
+          </p>
+        </div>
+
+        <!-- Légal -->
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-[#2196F3]/50 transition-colors"
+        >
+          <div
+            class="w-12 h-12 bg-[#2196F3]/20 rounded-xl flex items-center justify-center mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-[#2196F3]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">100% Légal</h3>
+          <p class="text-slate-400 text-sm">
+            Conforme à la législation française. Nous partageons de
+            l'information, pas de réservation ni de monétisation de l'espace
+            public.
+          </p>
+        </div>
+
+        <!-- Écologique -->
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-[#FF9800]/50 transition-colors"
+        >
+          <div
+            class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-emerald-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Éco-responsable</h3>
+          <p class="text-slate-400 text-sm">
+            Moins de temps à chercher = moins de CO2 émis. Chaque échange compte
+            pour la planète.
+          </p>
+        </div>
+
+        <!-- Gain de temps -->
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-[#FF9800]/50 transition-colors"
+        >
+          <div
+            class="w-12 h-12 bg-[#FF9800]/20 rounded-xl flex items-center justify-center mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-[#FF9800]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Gain de temps</h3>
+          <p class="text-slate-400 text-sm">
+            Fini les tours de bloc interminables. Trouvez une place en quelques
+            minutes.
+          </p>
+        </div>
+
+        <!-- Communautaire -->
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-[#2196F3]/50 transition-colors"
+        >
+          <div
+            class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-purple-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Communautaire</h3>
+          <p class="text-slate-400 text-sm">
+            Une communauté d'entraide où chacun contribue à fluidifier la
+            circulation.
+          </p>
+        </div>
+
+        <!-- Fluidité -->
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:border-[#2196F3]/50 transition-colors"
+        >
+          <div
+            class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-cyan-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Fluidité urbaine</h3>
+          <p class="text-slate-400 text-sm">
+            Moins de voitures en recherche = moins de bouchons. Contribuez à une
+            ville plus fluide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact environnemental -->
+  <section
+    class="py-20 sm:py-32 bg-gradient-to-br from-emerald-900/20 to-slate-900"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-2 mb-6"
+          >
+            <svg
+              class="w-5 h-5 text-emerald-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              ></path>
+            </svg>
+            <span class="text-emerald-400 font-medium text-sm"
+              >Impact positif</span
+            >
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-bold mb-6">
+            Agissez pour la planète
+          </h2>
+          <p class="text-xl text-slate-400 mb-8">
+            Saviez-vous qu'un conducteur passe en moyenne <span
+              class="text-white font-semibold">20 minutes par jour</span
+            > à chercher une place de parking ? Cela représente des milliers de tonnes
+            de CO2 évitables.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-slate-300">Réduction des émissions de CO2</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-slate-300"
+                >Moins de pollution sonore en ville</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-slate-300">Économie de carburant</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-slate-300"
+                >Amélioration de la qualité de l'air</span
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div
+            class="aspect-square bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 rounded-3xl flex items-center justify-center"
+          >
+            <div class="text-center">
+              <div
+                class="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-2"
+              >
+                -30%
+              </div>
+              <p class="text-xl text-slate-400">
+                de temps de recherche<br />en moyenne*
+              </p>
+              <p class="text-sm text-slate-500 mt-4">
+                *Estimation basée sur les études de mobilité urbaine
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 sm:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-bold mb-4">
+          Questions fréquentes
+        </h2>
+        <p class="text-xl text-slate-400">
+          Tout ce que vous devez savoir sur PlaceSwap
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <details
+          class="group bg-slate-800/50 border border-slate-700 rounded-2xl"
+        >
+          <summary
+            class="flex items-center justify-between p-6 cursor-pointer list-none"
+          >
+            <span class="font-semibold text-lg">Est-ce vraiment gratuit ?</span>
+            <svg
+              class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400">
+            Oui, PlaceSwap est et restera 100% gratuit. Nous ne monétisons pas
+            les places de parking car c'est interdit en France pour l'espace
+            public. Notre mission est simplement de partager l'information pour
+            fluidifier la circulation.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details
+          class="group bg-slate-800/50 border border-slate-700 rounded-2xl"
+        >
+          <summary
+            class="flex items-center justify-between p-6 cursor-pointer list-none"
+          >
+            <span class="font-semibold text-lg">Est-ce légal ?</span>
+            <svg
+              class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400">
+            Absolument ! En France, il est interdit de réserver ou de monnayer
+            des places de parking publiques. PlaceSwap est une application de
+            partage d'information, pas de réservation. Nous facilitons
+            simplement la communication entre conducteurs.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details
+          class="group bg-slate-800/50 border border-slate-700 rounded-2xl"
+        >
+          <summary
+            class="flex items-center justify-between p-6 cursor-pointer list-none"
+          >
+            <span class="font-semibold text-lg"
+              >Quand l'application sera-t-elle disponible ?</span
+            >
+            <svg
+              class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400">
+            PlaceSwap est actuellement en développement actif. Nous prévoyons un
+            lancement courant 2026 sur l'App Store (iOS) et Google Play Store
+            (Android). Inscrivez-vous pour être notifié dès la sortie !
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details
+          class="group bg-slate-800/50 border border-slate-700 rounded-2xl"
+        >
+          <summary
+            class="flex items-center justify-between p-6 cursor-pointer list-none"
+          >
+            <span class="font-semibold text-lg"
+              >Comment fonctionne l'échange ?</span
+            >
+            <svg
+              class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400">
+            C'est simple : quand vous quittez votre place, vous le signalez dans
+            l'app. Un conducteur à proximité est notifié et peut se diriger vers
+            votre position. Vous vous coordonnez via l'app pour un échange
+            fluide.
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details
+          class="group bg-slate-800/50 border border-slate-700 rounded-2xl"
+        >
+          <summary
+            class="flex items-center justify-between p-6 cursor-pointer list-none"
+          >
+            <span class="font-semibold text-lg"
+              >Mes données sont-elles protégées ?</span
+            >
+            <svg
+              class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400">
+            Oui, la protection de vos données est notre priorité. Nous
+            respectons le RGPD et ne partageons jamais vos informations
+            personnelles. Votre position n'est partagée que lorsque vous le
+            décidez activement.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Notification -->
+  <section
+    id="notification"
+    class="py-20 sm:py-32 bg-gradient-to-br from-[#2196F3]/20 via-slate-900 to-[#FF9800]/20"
+  >
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div
+        class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8"
+      >
+        <span class="relative flex h-3 w-3">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9800] opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-[#FF9800]"
+          ></span>
+        </span>
+        <span class="text-white font-medium text-sm">Sortie prévue en 2026</span
+        >
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-bold mb-6">
+        Soyez les premiers informés !
+      </h2>
+      <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+        Inscrivez-vous pour recevoir une notification dès que PlaceSwap sera
+        disponible sur l'App Store et Google Play.
+      </p>
+
+      <form 
+        action="https://api.web3forms.com/submit" 
+        method="POST"
+        class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mb-8"
+        id="notify-form"
+      >
+        <input type="hidden" name="access_key" value="e2d324fb-e937-47f3-b13c-b89ee2c89fd2" />
+        <input type="hidden" name="subject" value="Nouvelle inscription PlaceSwap 🚗" />
+        <input type="hidden" name="from_name" value="PlaceSwap Landing" />
+        <!-- Honeypot anti-spam (invisible pour les humains) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+        
+        <input
+          type="email"
+          name="email"
+          placeholder="Votre adresse email"
+          class="flex-1 px-6 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-[#2196F3] focus:ring-2 focus:ring-[#2196F3]/20 transition-all"
+          required
+        />
+        <button
+          type="submit"
+          class="px-8 py-4 bg-gradient-to-r from-[#2196F3] to-[#FF9800] hover:from-[#1976D2] hover:to-[#F57C00] text-white font-semibold rounded-xl transition-all hover:scale-105 whitespace-nowrap"
+        >
+          Me notifier
+        </button>
+      </form>
+
+      <!-- Message de succès (caché par défaut) -->
+      <div id="success-message" class="hidden bg-green-500/20 border border-green-500/40 rounded-xl px-6 py-4 max-w-xl mx-auto mb-8">
+        <p class="text-green-400 font-medium">✅ Merci ! Vous serez notifié dès la sortie de PlaceSwap.</p>
+      </div>
+
+      <p class="text-sm text-slate-500">
+        🔒 Pas de spam, promis. Juste une notification à la sortie de l'app.
+      </p>
+    </div>
+  </section>
+
+  <!-- Script pour gérer le formulaire en AJAX -->
+  <script>
+    const form = document.getElementById('notify-form') as HTMLFormElement;
+    const successMessage = document.getElementById('success-message');
+    
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = button.textContent;
+      
+      button.textContent = 'Envoi...';
+      button.disabled = true;
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          form.classList.add('hidden');
+          successMessage?.classList.remove('hidden');
+        } else {
+          throw new Error('Erreur');
+        }
+      } catch (error) {
+        button.textContent = originalText;
+        button.disabled = false;
+        alert('Une erreur est survenue. Veuillez réessayer.');
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img
+            src="/logo-placeswap-nobg.png"
+            alt="PlaceSwap Logo"
+            class="h-32 w-auto"
+          />
+        </div>
+        <div class="flex items-center gap-6 text-sm text-slate-400">
+          <a href="#" class="hover:text-white transition-colors"
+            >Mentions légales</a
+          >
+          <a href="#" class="hover:text-white transition-colors"
+            >Politique de confidentialité</a
+          >
+          <a href="#" class="hover:text-white transition-colors">Contact</a>
+        </div>
+        <div class="text-sm text-slate-500">
+          © 2026 PlaceSwap. Tous droits réservés.
+        </div>
+      </div>
+    </div>
+  </footer>
 </Layout>
